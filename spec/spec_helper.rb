@@ -4,10 +4,12 @@ require 'json'
 require 'pry'
 require 'rspec'
 
-require './api/authorise'
-require './api/booking'
-require './payloads/authorise_payload'
-require './payloads/booking_payload'
+require './lib/api/authorise'
+require './lib/api/booking'
+require './lib/payloads/authorise_payload'
+require './lib/payloads/booking_payload'
+
+require_all './steps'
 
 AllureRspec.configure do |config|
   config.results_directory = 'report/allure-results'
@@ -19,6 +21,10 @@ end
 
 RSpec.configure do |config|
   config.formatter = AllureRspecFormatter
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
+  end
 
   config.after do |example|
     Allure.step name: example.metadata[:full_description]

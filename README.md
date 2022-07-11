@@ -8,11 +8,11 @@ The framework using the following:
 - [Faker](https://github.com/faker-ruby/faker) - A library for generating fake data such as names, addresses, and phone
   numbers.
 - [Pry](https://github.com/pry/pry) - A runtime developer console.
-- [Ruby](https://www.ruby-lang.org/en/) - A popular language with testers.
 - [Rake](https://ruby.github.io/rake/) - Allows us to create tasks to manage dependencies and run our checks.
-- [Rspec](https://rspec.info/) - Framework to create and organise our checks.
 - [Rest-client](https://github.com/rest-client/rest-client) - Builds and triggers HTTP requests whilst handling
+- [Rspec](https://rspec.info/) - Framework to create and organise our checks.
   responses to be used in our checks.
+- [Ruby](https://www.ruby-lang.org/en/) - A popular language with testers.
 
 The framework contains following areas:
 
@@ -35,11 +35,33 @@ Suite of automated checks against the web service [restful-booker](https://restf
 
 ## Setup
 
-Run `bundle install` to install all the dependencies.
+1. Clone this repository.
+
+2. Run the following steps that install the necessary dependencies. [Bundler](https://bundler.io/) is required.
+
+```shell
+bundle install
+```
+
+## Configurations
+
+`ENV_URL` -> defaults to [https://restful-booker.herokuapp.com](), any valid url can be passed to set the target
+environment.
 
 ## Executing tests
 
-To start tests, run: `bundle exec rake`
+To start tests, run:
+
+```shell
+bundle exec rake
+```
+
+or execute individual test with provided ID (symbol after test's name, which contains digits enclosed in
+quotes: `tms:'101'` )
+
+```shell
+bundle exec rspec --tag tms:101
+```
 
 ## Generating local HTML Allure report
 
@@ -57,9 +79,9 @@ allure open allure-report
 
 For more info, please visit: [Allure Framework official documentation](https://docs.qameta.io/allure-report)
 
-## API documentation for the playground API restful-booker
+## API documentation for the playground
 
-[detailed API documentation](https://restful-booker.herokuapp.com/apidoc/index.html)
+[restful-booker detailed API documentation](https://restful-booker.herokuapp.com/apidoc/index.html)
 
 ## What is the builder pattern?
 
